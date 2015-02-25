@@ -2,7 +2,14 @@ package structures;
 
 public class Operation {
 
-	int index; 
+	String sourceR; 
+	String physicalR;
+	int nextUse; 
+	
+	
+	
+	
+	
 	
 	
 }
