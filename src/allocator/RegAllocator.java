@@ -1,27 +1,18 @@
 package allocator;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Reader;
+
+import structures.Controller;
 
 public class RegAllocator {
 
 	
 	public static void main (String args[]){
-		
-		
-	    File file = null;
-	    FileInputStream fis = null;
-	    BufferedInputStream bis = null;
-	    DataInputStream dis = null;
-		
-		
+				
 		if(args.length!=3){
 			System.out.println("Not enough arguments. Provide "
 					+ "k(# of Registers) "
@@ -40,25 +31,23 @@ public class RegAllocator {
 			return;
 		}
 		
+		
+
 		BufferedReader br =null;
 		
 		try {
-			 
-			String sCurrentLine;
- 
 			br = new BufferedReader(new FileReader(args[2]));
- 
-			while ((sCurrentLine = br.readLine()) != null) {
-				System.out.println(sCurrentLine);
-			}
+			Controller c = new Controller();
+			c.createBlock(br);
  
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
- 
-	}
-		
 
+	}
+	
+	
+		
 		
 		
 }

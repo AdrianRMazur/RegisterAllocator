@@ -9,7 +9,7 @@ public class Operation {
 	int lastUse; 
 	
 	
-	public Operation(int source, int physical){
+	public Operation(int source){
 		this.sourceReg=source;
 		this.physicalReg=-1; 
 		this.nextUse=-1; 
@@ -21,12 +21,12 @@ public class Operation {
 		return this.nextUse;
 	}
 	
-	public String SourceReg(){
-		return "r"+sourceReg;
+	public int getSourceReg(){
+		return sourceReg;
 	}
 	
-	public String PhysicalReg(){
-		return "p"+physicalReg;	
+	public int getPhysicalReg(){
+		return physicalReg;	
 	}
 	
 	public int liveRange(){
@@ -59,6 +59,10 @@ public class Operation {
 		this.lastUse=l;
 		return true; 
 	}
+	
+
+
+
 	
 	
 	
