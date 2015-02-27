@@ -41,7 +41,7 @@ public class Controller {
 	
 	public void setupNextUse(){
 		
-		srcRegs=new int[3][block.size()];
+		srcRegs=new int[4][block.size()];
 		Arrays.fill(srcRegs[0], -2);
 		Arrays.fill(srcRegs[1], -2);
 		Arrays.fill(srcRegs[2], -2);
@@ -66,9 +66,11 @@ public class Controller {
 					index=Controller.indexOf(srcRegs[0], -2, 0);
 					srcRegs[0][index]=regs[j];
 					srcRegs[1][index]=i;
+					srcRegs[3][index]=1;
 					continue;
 				}
-				srcRegs[2][index]=i;		
+				srcRegs[2][index]=i;
+				srcRegs[3][index]++;
 			}
 		}
 		
@@ -84,6 +86,9 @@ public class Controller {
 				}
 				if(j==2){
 					System.out.println("Last "+srcRegs[j][i]);
+				}
+				if(j==3){
+					System.out.println("Apperence "+srcRegs[j][i]);
 				}
 				}
 		}
@@ -104,7 +109,7 @@ public class Controller {
 		
 		for(int i=0; i<s.length();i++){
 			c=s.charAt(i);
-			
+			System.out.println(c);
 			//System.out.println(s.charAt(i+1));
 			if(c=='/'){
 				break; 
@@ -124,9 +129,9 @@ public class Controller {
 					if(Character.isDigit(s.charAt(i))){
 						output=output+s.charAt(i);
 					}
-					i++;
+					//i++;
 				}
-					
+				//System.out.println(">>>"+output);
 				output=output.trim();
 				if((int)store[0]==-1){
 					store[0]=Integer.parseInt(output);
@@ -134,11 +139,11 @@ public class Controller {
 				}
 				else if((int)store[1]==-1){
 					store[1]=Integer.parseInt(output);
-					//System.out.println(store[1]);
+					//System.out.println(">>"+store[1]);
 				}
 				else if((int)store[2]==-1){
 					store[2]=Integer.parseInt(output);
-					//System.out.println(store[2]);
+					//System.out.println(">>>"+store[2]);
 				}
 				output="";
 			}
@@ -160,7 +165,7 @@ public class Controller {
 			store[2]=store[0];
 			store[0]=-1;
 		}
-		
+		System.out.println("");
 		return store; 
 
 	}
